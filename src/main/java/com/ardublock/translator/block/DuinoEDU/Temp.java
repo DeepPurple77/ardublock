@@ -20,10 +20,9 @@ public class Temp extends TranslatorBlock {
 		
 		translator.addHeaderFile("DHT.h");
 		
-		translator.addDefinitionCommand("//libraries at http://duinoedu.com/dl/lib/grove/EDU_DHT_Grove/ \nDHT monDHT_Temp_pin"+Pin+"("+Pin +");"	);
-		translator.addSetupCommand("monDHT_Temp_pin"+Pin+".begin();");
-		String ret = "monDHT_Temp_pin"+Pin+".lireTemperature()";
-		
+		translator.addDefinitionCommand("DHT dht("+Pin +",DHT11);");
+		translator.addSetupCommand("dht.begin();");
+		String ret = "dht.readTemperature()";
 
 		return codePrefix + ret + codeSuffix;
 	}

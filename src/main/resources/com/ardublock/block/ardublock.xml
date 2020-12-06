@@ -4401,6 +4401,45 @@
 				</Image>
 			</Images>
 		</BlockGenus>
+		<BlockGenus name="DuinoEDU_gyroX" kind="data" color="0 255 0" initlabel="bg.DuinoEDU_gyroX">
+                        <description>
+                                <text>X Axis</text>
+                        </description>
+                        <BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" label="code" />
+                        </BlockConnectors>
+                        <Images>
+                                <Image>
+                                        <FileLocation>com/ardublock/block/seeedstudio/gyro.jpg</FileLocation>
+                                </Image>
+                        </Images>
+                </BlockGenus>
+		<BlockGenus name="DuinoEDU_gyroY" kind="data" color="0 255 0" initlabel="bg.DuinoEDU_gyroY">
+                        <description>
+                                <text>Y Axis</text>
+                        </description>
+                        <BlockConnectors>
+                                <BlockConnector connector-type="number" connector-kind="plug" label="code" />
+                        </BlockConnectors>
+                        <Images>
+                                <Image>
+                                        <FileLocation>com/ardublock/block/seeedstudio/gyro.jpg</FileLocation>
+                                </Image>
+                        </Images>
+                </BlockGenus>
+		<BlockGenus name="DuinoEDU_gyroZ" kind="data" color="0 255 0" initlabel="bg.DuinoEDU_gyroZ">
+                        <description>
+                                <text>Z Axis</text>
+                        </description>
+                        <BlockConnectors>
+                                <BlockConnector connector-type="number" connector-kind="plug" label="code" />
+                        </BlockConnectors>
+                        <Images>
+                                <Image>
+                                        <FileLocation>com/ardublock/block/seeedstudio/gyro.jpg</FileLocation>
+                                </Image>
+                        </Images>
+                </BlockGenus>
 		<BlockGenus name="seeed_mq9_sensor" kind="data" color="0 255 0" initlabel="bg.seeed_mq9_sensor">
 			<description>
 				<text>Read analog value from analog pin</text>
@@ -5332,12 +5371,6 @@
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
 					<DefaultArg genus-name="message" label="Oled I2C"/>
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.line_number">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DuinoEDU_Brightness">
-					<DefaultArg genus-name="number" label="255" />
-				</BlockConnector>
 			</BlockConnectors>
 			<Images>
 				<Image>
@@ -5345,6 +5378,22 @@
 				</Image>
 			</Images>
 		</BlockGenus>
+
+			<BlockGenus name="DuinoEDU_Oled_setline" kind="command" color="0 255 0" initlabel="bg.DuinoEDU_Oled_setline">
+                        <description>
+                                <text>Oled_setline</text>
+                        </description>                 
+                        <BlockConnectors>
+                                <BlockConnector connector-type="number" connector-kind="socket" label="bc.line_number">
+                                        <DefaultArg genus-name="number" label="1" />
+                                </BlockConnector>
+                        </BlockConnectors>
+                        <Images>
+                                <Image>
+                                        <FileLocation>com/ardublock/block/seeedstudio/Oled.png</FileLocation>^M
+                                </Image>
+                        </Images>
+                </BlockGenus>
 
 				<BlockGenus name="DuinoEDU_Oled_Clear" kind="command" color="0 255 0" initlabel="bg.DuinoEDU_Oled_Clear">
 			<description>
@@ -5609,36 +5658,12 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>		
 		</BlockGenus>
-		<BlockGenus name="DuinoEDU_On_digit2" kind="data" color="214 169 54" initlabel="bg.DuinoEDU_On_digit2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>	
-		</BlockGenus>
-		<BlockGenus name="DuinoEDU_On_digit3" kind="data" color="214 169 54" initlabel="bg.DuinoEDU_On_digit3" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>	
-		</BlockGenus>
-		<BlockGenus name="DuinoEDU_On_digit4" kind="data" color="214 169 54" initlabel="bg.DuinoEDU_On_digit4" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>				
-		</BlockGenus>
 					<BlockGenus name="DuinoEDU_Display_Digital_Tube2" kind="command" color="0 255 0" initlabel="bg.DuinoEDU_Display_Digital_Tube2">
 			<description>
 				<text>Display Didital Tube</text>
 			</description>			
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DuinoEDU_On_digit1">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DuinoEDU_On_digit2">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>	
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DuinoEDU_On_digit3">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DuinoEDU_On_digit4">
 					<DefaultArg genus-name="number" label="0" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.DuinoEDU_Display_Point">
@@ -11417,10 +11442,10 @@
 			<FamilyMember>DuinoEDU_humi</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
-			<FamilyMember>DuinoEDU_On_digit1</FamilyMember>
-			<FamilyMember>DuinoEDU_On_digit2</FamilyMember>
-			<FamilyMember>DuinoEDU_On_digit3</FamilyMember>
-			<FamilyMember>DuinoEDU_On_digit4</FamilyMember>
+			<FamilyMember>DuinoEDU_gyroX</FamilyMember>
+			<FamilyMember>DuinoEDU_gyroY</FamilyMember>
+			<FamilyMember>DuinoEDU_gyroZ</FamilyMember>
+			<!--<FamilyMember>DuinoEDU_On_digit4</FamilyMember>-->
 		</BlockFamily>	
 		<BlockFamily>
 			<FamilyMember>DuinoEDU_setSerialInfosOn</FamilyMember>
@@ -12025,10 +12050,14 @@
 				<BlockGenusMember>DuinoEDU_infrared_compare</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_temp</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_humiPro</BlockGenusMember>
+				<BlockGenusMember>DuinoEDU_gyroX</BlockGenusMember>
+				<!--<BlockGenusMember>seeed_threeaxis_gyroY</BlockGenusMember>
+				<BlockGenusMember>seeed_threeaxis_gyroZ</BlockGenusMember>-->
 				<BlockGenusMember>DuinoEDU_Barometer_Pression</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Led_Bar</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Oled_I2C</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Oled_Clear</BlockGenusMember>	
+				<BlockGenusMember>DuinoEDU_Oled_setline</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Keypad_12_Button</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Keypad_Post</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Keypad_Pwd</BlockGenusMember>

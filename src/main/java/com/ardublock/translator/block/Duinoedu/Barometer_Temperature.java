@@ -16,11 +16,10 @@ public class Barometer_Temperature  extends TranslatorBlock {
 		public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 		{		
 			translator.addHeaderFile("Wire.h");
-			translator.addHeaderFile("Barometer.h");
-			translator.addDefinitionCommand("Barometer monBarometre;");
-			translator.addDefinitionCommand("//libraries at http://duinoedu.com/dl/lib/grove/EDU_BarometerSensor_Grove/");
-			translator.addSetupCommand("monBarometre.brancher();");
+			translator.addHeaderFile("Seeed_BMP280.h");
+			translator.addDefinitionCommand("BMP280 bmp280;");
+			translator.addSetupCommand("if (!bmp280.init()) Serial.println(\"Device not connected or broken!\");");
 			
-			return codePrefix +"monBarometre.lireTemperature()" + codeSuffix;	
+			return codePrefix +"bmp280.getTemperature()" + codeSuffix;	
 		}
 }
