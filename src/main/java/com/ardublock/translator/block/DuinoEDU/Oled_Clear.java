@@ -15,12 +15,14 @@ public class Oled_Clear  extends TranslatorBlock {
 	//@Override
 		public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 		{
-					
+			translator.addHeaderFile("Wire.h");
+			translator.addHeaderFile("U8x8lib.h");
+			translator.addDefinitionCommand("U8X8_SSD1306_128X64_ALT0_HW_I2C u8x8(/* reset=*/ U8X8_PIN_NONE);");
+			translator.addSetupCommand("u8x8.begin();\nu8x8.setPowerSave(0);\nu8x8.setFlipMode(1);\nu8x8.setFont(u8x8_font_chroma48medium8_r);\n");
 			
-			
-			String ret = "u8x8.clearDisplay();";
-			
+		
+			String ret = "u8x8.clearDisplay();\n";
 
-			return codePrefix + ret + codeSuffix;	
+			return ret ;	
 		}
 }
