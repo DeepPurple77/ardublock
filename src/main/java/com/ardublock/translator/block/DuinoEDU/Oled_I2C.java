@@ -23,8 +23,15 @@ public class Oled_I2C  extends TranslatorBlock {
 			
 			TranslatorBlock translatorBlock2 = this.getRequiredTranslatorBlockAtSocket(0, "u8x8.print(", " );\n");
 			
-			String ret = translatorBlock2.toCode() + "\nu8x8.refreshDisplay()";
+			String ret = translatorBlock2.toCode();
 			
+			TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
+			String newline=translatorBlock.toCode();	
+			if(newline.equals("true")){
+				ret+="u8x8.println();\n";
+			}
+			ret+="u8x8.refreshDisplay();\n";
+
 			return ret ;	
 		}
 }
