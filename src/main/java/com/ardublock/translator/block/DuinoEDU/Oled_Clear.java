@@ -18,7 +18,7 @@ public class Oled_Clear  extends TranslatorBlock {
 					
 			
 			
-			String ret = "SeeedOled.effacer();";
+			String ret = "u8x8.clearDisplay();";
 			
 
 			return codePrefix + ret + codeSuffix;	
