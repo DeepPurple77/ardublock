@@ -18,7 +18,7 @@ public class threeAxisZ extends TranslatorBlock {
 		
 		translator.addDefinitionCommand("#ifdef SOFTWAREWIRE\n #include <SoftwareWire.h>\n SoftwareWire myWire(3, 2);\n LIS3DHTR<SoftwareWire> LIS;\n #define WIRE myWire\n#else\n #include <Wire.h>\n LIS3DHTR<TwoWire> LIS;\n #define WIRE Wire\n#endif\n");
 
-		translator.addSetupCommand("while (!Serial) {};\n LIS.begin(WIRE, LIS3DHTR_ADDRESS_UPDATED);\ndelay(100);\nLIS.setOutputDataRate(LIS3DHTR_DATARATE_50HZ);\n");
+		translator.addSetupCommand("LIS.begin(WIRE, LIS3DHTR_ADDRESS_UPDATED);\ndelay(100);\nLIS.setOutputDataRate(LIS3DHTR_DATARATE_50HZ);\n");
 
 		String ret = "LIS.getAccelerationZ()";
 
